@@ -38,50 +38,54 @@ const styles = StyleSheet.create({
   }
 });
 
-const datas = [
-  {
-    label: "Learn Javascript",
-    complete: true
-  },
-  {
-    label: "Learn ES6",
-    complete: true
-  },
-  {
-    label: "Learn ES7",
-    complete: true
-  },
-  {
-    label: "Learn React",
-    complete: true
-  },
-  {
-    label: "Learn React Native"
-  },
-  {
-    label: "Learn Redux"
-  },
-  {
-    label: "Learn by doing"
-  },
-  {
-    label: "Learn to teach"
-  },
-  {
-    label: "Teach to learn"
-  },
-  {
-    label: "Go to sleep"
-  },
-  {
-    label: "Learn Nodejs"
-  },
-  {
-    label: "Learn Graphql"
-  }
-];
-
 export default class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      places: [
+        {
+          label: "Hong Kong",
+          visited: true
+        },
+        {
+          label: "Londres",
+          visited: true
+        },
+        {
+          label: "Singapour",
+          visited: true
+        },
+        {
+          label: "Bangkok",
+          visited: true
+        },
+        {
+          label: "Paris"
+        },
+        {
+          label: "Macao"
+        },
+        {
+          label: "Dubai"
+        },
+        {
+          label: "Shenzhen"
+        },
+        {
+          label: "New York"
+        },
+        {
+          label: "Istanbul"
+        },
+        {
+          label: "Kuala Lumpur"
+        },
+        {
+          label: "Antalya"
+        }
+      ]
+    };
+  }
   render() {
     return (
       <View style={styles.root}>
@@ -89,11 +93,11 @@ export default class App extends Component {
           <Text style={styles.headerText}>Header</Text>
         </View>
         <ScrollView contentContainerStyle={styles.content}>
-          {datas.map((item, index) => {
+          {this.state.places.map((item, index) => {
             return (
               <PlaceItem
                 label={item.label}
-                complete={item.complete}
+                visited={item.visited}
                 key={index}
               />
             );

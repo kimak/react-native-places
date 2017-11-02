@@ -5,14 +5,14 @@ const styles = StyleSheet.create({
   item: {
     fontSize: 32
   },
-  itemComplete: {
+  itemVisited: {
     textDecorationLine: "line-through"
   }
 });
 
 const Item = props => {
-  const itemStyle = props.complete
-    ? [styles.item, styles.itemComplete]
+  const itemStyle = props.visited
+    ? [styles.item, styles.itemVisited]
     : styles.item;
   return <Text style={itemStyle}>{props.label}</Text>;
 };
