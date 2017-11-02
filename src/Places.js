@@ -98,6 +98,11 @@ export default class App extends Component {
       ]
     };
   }
+  onItemSelected(index) {
+    const places = [...this.state.places]; // equal-to this.state.places.concat();
+    places[index].visited = !places[index].visited;
+    this.setState({ places });
+  }
   render() {
     return (
       <View style={styles.root}>
@@ -111,6 +116,7 @@ export default class App extends Component {
                 label={item.label}
                 visited={item.visited}
                 key={item.id}
+                onPress={this.onItemSelected.bind(this, index)}
               />
             );
           })}

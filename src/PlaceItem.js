@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, StyleSheet } from "react-native";
+import { Text, StyleSheet, TouchableOpacity } from "react-native";
 
 const styles = StyleSheet.create({
   item: {
@@ -14,7 +14,11 @@ const Item = props => {
   const itemStyle = props.visited
     ? [styles.item, styles.itemVisited]
     : styles.item;
-  return <Text style={itemStyle}>{props.label}</Text>;
+  return (
+    <TouchableOpacity onPress={props.onPress}>
+      <Text style={itemStyle}>{props.label}</Text>
+    </TouchableOpacity>
+  );
 };
 
 export default Item;
