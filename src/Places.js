@@ -11,6 +11,7 @@ StatusBar.setHidden(true);
 
 import PlaceItem from "./PlaceItem";
 import Header from "./Header";
+import Footer from "./Footer";
 
 const styles = StyleSheet.create({
   root: {
@@ -20,12 +21,6 @@ const styles = StyleSheet.create({
   content: {
     flex: 0,
     alignItems: "center"
-  },
-  footer: {
-    height: 50,
-    backgroundColor: "#FFF",
-    alignItems: "center",
-    justifyContent: "center"
   }
 });
 
@@ -33,6 +28,7 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
+      filter: "all",
       places: [
         {
           id: 0,
@@ -89,6 +85,7 @@ export default class App extends Component {
       ]
     };
     this.addItem = this.addItem.bind(this);
+    this.updateFilter = this.updateFilter.bind(this);
   }
   onToggleItem(index) {
     const places = [...this.state.places]; // equal-to this.state.places.concat();
@@ -107,21 +104,9 @@ export default class App extends Component {
       places
     });
   }
-  onToggleItem(index) {
-    const places = [...this.state.places]; // equal-to this.state.places.concat();
-    places[index].visited = !places[index].visited;
-    this.setState({ places });
-  }
-  addItem(label) {
-    const places = [...this.state.places];
-    places.unshift({
-      label,
-      visited: false,
-      id: places.length
-    });
-
+  updateFilter(value) {
     this.setState({
-      places
+      filter: value
     });
   }
   render() {
@@ -130,6 +115,8 @@ export default class App extends Component {
         <Header onAdd={this.addItem} />
         <ScrollView contentContainerStyle={styles.content}>
           {this.state.places.map((item, index) => {
+            if (item.visited && this.state.filter === "new") return null;
+            if (!item.visited && this.state.filter === "visited") return null;
             return (
               <PlaceItem
                 label={item.label}
@@ -146,9 +133,10 @@ export default class App extends Component {
             }}
           />
         </ScrollView>
-        <View style={styles.footer}>
-          <Text>Footer</Text>
-        </View>
+        <Footer
+          onSelectFilter={this.updateFilter}
+          selected={this.state.filter}
+        />
       </View>
     );
   }
