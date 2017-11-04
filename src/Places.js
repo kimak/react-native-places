@@ -98,7 +98,7 @@ export default class App extends Component {
       ]
     };
   }
-  onItemSelected(index) {
+  onToggleItem(index) {
     const places = [...this.state.places]; // equal-to this.state.places.concat();
     places[index].visited = !places[index].visited;
     this.setState({ places });
@@ -116,7 +116,7 @@ export default class App extends Component {
                 label={item.label}
                 visited={item.visited}
                 key={item.id}
-                onPress={this.onItemSelected.bind(this, index)}
+                onPress={this.onToggleItem.bind(this, index)}
               />
             );
           })}
