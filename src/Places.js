@@ -10,6 +10,7 @@ import {
 StatusBar.setHidden(true);
 
 import PlaceItem from "./PlaceItem";
+import Input from "./Input";
 
 const styles = StyleSheet.create({
   root: {
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
   header: {
     height: 80,
     width: "100%",
-    backgroundColor: "#000",
+    backgroundColor: "#FFF",
     alignItems: "center",
     justifyContent: "center"
   },
@@ -97,17 +98,30 @@ export default class App extends Component {
         }
       ]
     };
+    this.addItem = this.addItem.bind(this);
   }
   onToggleItem(index) {
     const places = [...this.state.places]; // equal-to this.state.places.concat();
     places[index].visited = !places[index].visited;
     this.setState({ places });
   }
+  addItem(label) {
+    const places = [...this.state.places];
+    places.unshift({
+      label,
+      visited: false,
+      id: places.length
+    });
+
+    this.setState({
+      places
+    });
+  }
   render() {
     return (
       <View style={styles.root}>
         <View style={styles.header}>
-          <Text style={styles.headerText}>Header</Text>
+          <Input onAdd={this.addItem} />
         </View>
         <ScrollView contentContainerStyle={styles.content}>
           {this.state.places.map((item, index) => {
