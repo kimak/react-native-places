@@ -10,13 +10,30 @@ import {
 StatusBar.setHidden(true);
 
 import PlaceItem from "./PlaceItem";
+<<<<<<< HEAD:src/Places.js
 import Header from "./Header";
+=======
+import Input from "./Input";
+>>>>>>> add place feature:src/features/places/components/Places.js
 
 const styles = StyleSheet.create({
   root: {
     flex: 1,
     backgroundColor: "#ecf0f1"
   },
+<<<<<<< HEAD:src/Places.js
+=======
+  header: {
+    height: 80,
+    width: "100%",
+    backgroundColor: "#FFF",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  headerText: {
+    color: "#FFF"
+  },
+>>>>>>> add place feature:src/features/places/components/Places.js
   content: {
     flex: 0,
     alignItems: "center"
@@ -111,6 +128,18 @@ export default class App extends Component {
     const places = [...this.state.places]; // equal-to this.state.places.concat();
     places[index].visited = !places[index].visited;
     this.setState({ places });
+  }
+  addItem(label) {
+    const places = [...this.state.places];
+    places.unshift({
+      label,
+      visited: false,
+      id: places.length
+    });
+
+    this.setState({
+      places
+    });
   }
   render() {
     return (
