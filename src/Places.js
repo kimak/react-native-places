@@ -10,22 +10,12 @@ import {
 StatusBar.setHidden(true);
 
 import PlaceItem from "./PlaceItem";
-import Input from "./Input";
+import Header from "./Header";
 
 const styles = StyleSheet.create({
   root: {
     flex: 1,
     backgroundColor: "#ecf0f1"
-  },
-  header: {
-    height: 80,
-    width: "100%",
-    backgroundColor: "#FFF",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  headerText: {
-    color: "#FFF"
   },
   content: {
     flex: 0,
@@ -120,9 +110,7 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.root}>
-        <View style={styles.header}>
-          <Input onAdd={this.addItem} />
-        </View>
+        <Header onAdd={this.addItem} />
         <ScrollView contentContainerStyle={styles.content}>
           {this.state.places.map((item, index) => {
             return (
