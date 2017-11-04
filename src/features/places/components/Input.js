@@ -39,7 +39,7 @@ export default class Input extends Component {
   addHandler() {
     if (this.props.onAdd) this.props.onAdd(this.state.text);
     this.setState({
-      text: null
+      text: undefined
     });
   }
   render() {
