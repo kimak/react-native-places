@@ -13,8 +13,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFE163"
   },
   text: {
-    padding: 10,
-    borderWidth: 1
+    paddingVertical: 2,
+    paddingHorizontal: 10,
+    borderWidth: 1,
+    borderColor: "#CCC"
   }
 });
 
