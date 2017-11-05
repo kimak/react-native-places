@@ -1,3 +1,3 @@
-import Places from "./src/features/places/components/Places";
+import Places from "./src/Places";
 
 export default Places;
