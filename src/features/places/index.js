@@ -7,7 +7,6 @@ import {
   Image,
   StatusBar
 } from "react-native";
-StatusBar.setHidden(true);
 
 import PlaceItem from "./PlaceItem";
 import Header from "./Header";

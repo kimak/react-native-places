@@ -1,3 +1,8 @@
-import Places from "./src/Places";
+import React from "react";
+import { StatusBar } from "react-native";
+import Places from "./src/features/home";
+StatusBar.setHidden(true);
 
-export default Places;
+const App = () => <Places />;
+
+export default App;
