@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class App extends Component {
+export default class Places extends Component {
   constructor() {
     super();
     this.state = {
