@@ -8,16 +8,24 @@ import {
 
 import Home from "../features/home";
 import Places from "../features/places";
+import Around from "../features/around";
+import Friends from "../features/friends";
 
 const Tabs = TabNavigator({
-  Tabs: {
+  Places: {
     screen: Places,
     navigationOptions: {
       header: null
     }
   },
-  Tabs2: {
-    screen: Home,
+  Around: {
+    screen: Around,
+    navigationOptions: {
+      header: null
+    }
+  },
+  Friends: {
+    screen: Friends,
     navigationOptions: {
       header: null
     }
