@@ -1,7 +1,32 @@
-import { StackNavigator } from "react-navigation";
+import React from "react";
+import { View, Text } from "react-native";
+import {
+  StackNavigator,
+  DrawerNavigator,
+  TabNavigator
+} from "react-navigation";
 
 import Home from "../features/home";
 import Places from "../features/places";
+
+const Drawer = DrawerNavigator(
+  {
+    Drawer: {
+      screen: Places,
+      navigationOptions: {
+        header: null
+      }
+    }
+  },
+  {
+    drawerPosition: "right",
+    contentComponent: props => (
+      <View>
+        <Text {...props}>Hello Drawer</Text>
+      </View>
+    )
+  }
+);
 
 const RootNavigator = StackNavigator({
   Home: {
@@ -11,7 +36,7 @@ const RootNavigator = StackNavigator({
     }
   },
   Places: {
-    screen: Places,
+    screen: Drawer,
     navigationOptions: {
       header: null
     }
