@@ -1,16 +1,35 @@
 import React from "react";
 import { View, Text } from "react-native";
-import { StackNavigator, DrawerNavigator } from "react-navigation";
+import {
+  StackNavigator,
+  DrawerNavigator,
+  TabNavigator
+} from "react-navigation";
 
 import Home from "../features/home";
 import Places from "../features/places";
+
+const Tabs = TabNavigator({
+  Tabs: {
+    screen: Places,
+    navigationOptions: {
+      header: null
+    }
+  },
+  Tabs2: {
+    screen: Home,
+    navigationOptions: {
+      header: null
+    }
+  }
+});
 
 // this.props.navigation.navigate("DrawerClose");
 // this.props.navigation.navigate("DrawerOpen");
 const Drawer = DrawerNavigator(
   {
     Drawer: {
-      screen: Places,
+      screen: Tabs,
       navigationOptions: {
         header: null
       }
