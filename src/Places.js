@@ -1,15 +1,8 @@
 import React, { Component } from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  ScrollView,
-  Image,
-  StatusBar
-} from "react-native";
+import { Text, View, StyleSheet, StatusBar } from "react-native";
 StatusBar.setHidden(true);
 
-import PlaceItem from "./PlaceItem";
+// import PlaceItem from './PlaceItem';
 
 const styles = StyleSheet.create({
   root: {
@@ -27,7 +20,7 @@ const styles = StyleSheet.create({
     color: "#FFF"
   },
   content: {
-    flex: 0,
+    flex: 1,
     alignItems: "center"
   },
   footer: {
@@ -38,7 +31,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class App extends Component {
+export default class Places extends Component {
   constructor() {
     super();
     this.state = {
@@ -73,27 +66,7 @@ export default class App extends Component {
         },
         {
           id: 6,
-          label: "Dubai"
-        },
-        {
-          id: 7,
-          label: "Shenzhen"
-        },
-        {
-          id: 8,
           label: "New York"
-        },
-        {
-          id: 9,
-          label: "Istanbul"
-        },
-        {
-          id: 10,
-          label: "Kuala Lumpur"
-        },
-        {
-          id: 11,
-          label: "Antalya"
         }
       ]
     };
@@ -104,23 +77,9 @@ export default class App extends Component {
         <View style={styles.header}>
           <Text style={styles.headerText}>Header</Text>
         </View>
-        <ScrollView contentContainerStyle={styles.content}>
-          {this.state.places.map((item, index) => {
-            return (
-              <PlaceItem
-                label={item.label}
-                visited={item.visited}
-                key={item.id}
-              />
-            );
-          })}
-          <Image
-            style={{ width: 200, height: 150 }}
-            source={{
-              uri: "http://media.giphy.com/media/A06UFEx8jxEwU/giphy.gif"
-            }}
-          />
-        </ScrollView>
+        <View style={styles.content}>
+          {/* TODO  use this.state.places and <PlaceItem />*/}
+        </View>
         <View style={styles.footer}>
           <Text>Footer</Text>
         </View>

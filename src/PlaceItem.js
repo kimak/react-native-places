@@ -6,7 +6,8 @@ const styles = StyleSheet.create({
     fontSize: 32
   },
   itemVisited: {
-    textDecorationLine: "line-through"
+    // TODO
+    // https://facebook.github.io/react-native/docs/text.html#style
   }
 });
 
