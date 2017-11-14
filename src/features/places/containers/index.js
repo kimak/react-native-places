@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import Places from "../index";
+import Component from "../components";
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -18,6 +18,5 @@ function mapStateToProps(state) {
   };
 }
 
-const PlacesContainer = connect(mapStateToProps, mapDispatchToProps)(Places);
-
+const PlacesContainer = connect(mapStateToProps, mapDispatchToProps)(Component);
 export default PlacesContainer;
