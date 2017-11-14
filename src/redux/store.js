@@ -2,6 +2,9 @@ import { combineReducers, createStore } from "redux";
 import places from "./reducers/places";
 
 let reducer = combineReducers({ places });
-let store = createStore(reducer);
+let store = createStore(
+  reducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 export default store;
