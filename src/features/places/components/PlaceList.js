@@ -1,6 +1,5 @@
 import React from "react";
 import PlaceItem from "./PlaceItem";
-import { View } from "react-native";
 
 const PlaceList = props => {
   return props.places.map((item, index) => {
