@@ -8,9 +8,9 @@ import {
   StatusBar
 } from "react-native";
 
-import PlaceItem from "./PlaceItem";
-import Header from "./Header";
-import Footer from "./Footer";
+import PlaceList from "./components/PlaceList";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const styles = StyleSheet.create({
   root: {
@@ -85,6 +85,7 @@ export default class Places extends Component {
     };
     this.addItem = this.addItem.bind(this);
     this.updateFilter = this.updateFilter.bind(this);
+    this.onToggleItem = this.onToggleItem.bind(this);
   }
   onToggleItem(index) {
     const places = [...this.state.places]; // equal-to this.state.places.concat();
@@ -113,23 +114,10 @@ export default class Places extends Component {
       <View style={styles.root}>
         <Header onAdd={this.addItem} />
         <ScrollView contentContainerStyle={styles.content}>
-          {this.state.places.map((item, index) => {
-            if (item.visited && this.state.filter === "new") return null;
-            if (!item.visited && this.state.filter === "visited") return null;
-            return (
-              <PlaceItem
-                label={item.label}
-                visited={item.visited}
-                key={item.id}
-                onPress={this.onToggleItem.bind(this, index)}
-              />
-            );
-          })}
-          <Image
-            style={{ width: 200, height: 150 }}
-            source={{
-              uri: "http://media.giphy.com/media/A06UFEx8jxEwU/giphy.gif"
-            }}
+          <PlaceList
+            places={this.state.places}
+            filter={this.state.filter}
+            onSelectItem={this.onToggleItem}
           />
         </ScrollView>
         <Footer
