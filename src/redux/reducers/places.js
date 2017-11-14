@@ -56,15 +56,15 @@ const initialState = [
 function places(state = initialState, action) {
   switch (action.type) {
     case "ADD_PLACE":
-      const newState = [...state];
-      newState.unshift({
+      const copyState = [...state];
+      copyState.unshift({
         label: action.label,
         visited: false,
         id: newState.length
       });
-      return newState;
+      return copyState;
     case "TOGGLE_PLACE":
-      const newState = state.concat();
+      const newState = state.concat(); // equal-to [...state]
       newState[action.index].visited = !newState[action.index].visited;
       return newState;
     default:
