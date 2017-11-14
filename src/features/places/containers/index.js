@@ -8,13 +8,17 @@ function mapDispatchToProps(dispatch) {
     },
     addItem: label => {
       dispatch({ type: "ADD_PLACE", label });
+    },
+    updateFilter: value => {
+      dispatch({ type: "SET_FILTER", filter: value });
     }
   };
 }
 
 function mapStateToProps(state) {
   return {
-    places: state.places
+    places: state.places,
+    filter: state.placesFilter
   };
 }
 

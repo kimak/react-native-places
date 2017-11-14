@@ -24,18 +24,6 @@ const styles = StyleSheet.create({
 });
 
 export default class Places extends Component {
-  constructor() {
-    super();
-    this.state = {
-      filter: "all"
-    };
-    this.updateFilter = this.updateFilter.bind(this);
-  }
-  updateFilter(value) {
-    this.setState({
-      filter: value
-    });
-  }
   render() {
     return (
       <View style={styles.root}>
@@ -43,13 +31,13 @@ export default class Places extends Component {
         <ScrollView contentContainerStyle={styles.content}>
           <PlaceList
             places={this.props.places}
-            filter={this.state.filter}
+            filter={this.props.filter}
             onSelectItem={this.props.onToggleItem}
           />
         </ScrollView>
         <Footer
-          onSelectFilter={this.updateFilter}
-          selected={this.state.filter}
+          onSelectFilter={this.props.updateFilter}
+          selected={this.props.filter}
         />
       </View>
     );
