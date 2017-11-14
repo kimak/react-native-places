@@ -23,23 +23,17 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class Places extends Component {
-  render() {
-    return (
-      <View style={styles.root}>
-        <Header onAdd={this.props.addItem} />
-        <ScrollView contentContainerStyle={styles.content}>
-          <PlaceList
-            places={this.props.places}
-            filter={this.props.filter}
-            onSelectItem={this.props.onToggleItem}
-          />
-        </ScrollView>
-        <Footer
-          onSelectFilter={this.props.updateFilter}
-          selected={this.props.filter}
-        />
-      </View>
-    );
-  }
-}
+const Places = props => (
+  <View style={styles.root}>
+    <Header onAdd={props.addItem} />
+    <ScrollView contentContainerStyle={styles.content}>
+      <PlaceList
+        places={props.places}
+        filter={props.filter}
+        onSelectItem={props.onToggleItem}
+      />
+    </ScrollView>
+    <Footer onSelectFilter={props.updateFilter} selected={props.filter} />
+  </View>
+);
+export default Places;
