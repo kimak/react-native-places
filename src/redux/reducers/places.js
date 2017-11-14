@@ -60,7 +60,7 @@ function places(state = initialState, action) {
       copyState.unshift({
         label: action.label,
         visited: false,
-        id: newState.length
+        id: copyState.length
       });
       return copyState;
     case "TOGGLE_PLACE":
