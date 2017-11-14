@@ -1,2 +1,2 @@
-import places from "./components";
+import places from "./containers";
 export default places;
