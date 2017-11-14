@@ -1,71 +1,27 @@
-import React from "react";
-import { View, Text } from "react-native";
-import {
-  StackNavigator,
-  DrawerNavigator,
-  TabNavigator
-} from "react-navigation";
+import React, { PropTypes } from "react";
+import { addNavigationHelpers } from "react-navigation";
+import { connect } from "react-redux";
 
-import Home from "../features/home";
-import Places from "../features/places";
-import Around from "../features/around";
-import Friends from "../features/friends";
+import AppNavigator from "./AppNavigator";
 
-const Tabs = TabNavigator({
-  Places: {
-    screen: Places,
-    navigationOptions: {
-      header: null
-    }
-  },
-  Around: {
-    screen: Around,
-    navigationOptions: {
-      header: null
-    }
-  },
-  Friends: {
-    screen: Friends,
-    navigationOptions: {
-      header: null
-    }
-  }
-});
+function Navigation({ dispatch, navigation }) {
+  return (
+    <AppNavigator
+      navigation={addNavigationHelpers({ dispatch, state: navigation })}
+    />
+  );
+}
 
-// this.props.navigation.navigate("DrawerClose");
-// this.props.navigation.navigate("DrawerOpen");
-const Drawer = DrawerNavigator(
-  {
-    Drawer: {
-      screen: Tabs,
-      navigationOptions: {
-        header: null
-      }
-    }
-  },
-  {
-    drawerPosition: "right",
-    contentComponent: props => (
-      <View>
-        <Text {...props}>Hello Drawer</Text>
-      </View>
-    )
-  }
-);
+function mapStateToProps(state) {
+  return {
+    navigation: state.navigation
+  };
+}
 
-const RootNavigator = StackNavigator({
-  Home: {
-    screen: Home,
-    navigationOptions: {
-      header: null
-    }
-  },
-  Places: {
-    screen: Drawer,
-    navigationOptions: {
-      header: null
-    }
-  }
-});
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatch
+  };
+}
 
-export default RootNavigator;
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
