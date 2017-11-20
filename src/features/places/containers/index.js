@@ -7,19 +7,11 @@ import {
   updateFilter
 } from "../../../redux/actions/places";
 import Component from "../components";
-
-class LifecycleComponent extends React.Component {
-  componentDidMount() {
-    this.props.init();
-  }
-  render() {
-    return <Component {...this.props} />;
-  }
-}
+import withDidMount from "../../../shared-ui/hoc/withDidMount";
 
 function mapDispatchToProps(dispatch) {
   return {
-    init() {
+    didMount() {
       dispatch(fetchPlaces());
     },
     onToggleItem: index => {
@@ -37,11 +29,13 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
   return {
     places: state.places.list,
+    isLoading: state.places.isLoading,
+    error: state.places.error,
     filter: state.placesFilter
   };
 }
 
 const PlacesContainer = connect(mapStateToProps, mapDispatchToProps)(
-  LifecycleComponent
+  withDidMount(Component)
 );
 export default PlacesContainer;
