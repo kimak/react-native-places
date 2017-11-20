@@ -3,8 +3,6 @@ import PlaceItem from "./PlaceItem";
 
 const PlaceList = props => {
   return props.places.map((item, index) => {
-    if (item.visited && props.filter === "new") return null;
-    if (!item.visited && props.filter === "visited") return null;
     return (
       <PlaceItem
         label={item.label}

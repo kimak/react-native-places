@@ -27,11 +27,7 @@ const Places = props => (
   <View style={styles.root}>
     <Header onAdd={props.addItem} />
     <ScrollView contentContainerStyle={styles.content}>
-      <PlaceList
-        places={props.places}
-        filter={props.filter}
-        onSelectItem={props.onToggleItem}
-      />
+      <PlaceList places={props.places} onSelectItem={props.onToggleItem} />
     </ScrollView>
     <Footer onSelectFilter={props.updateFilter} selected={props.filter} />
   </View>
