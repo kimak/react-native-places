@@ -1,4 +1,5 @@
 import React from "react";
+import { compose } from "redux";
 import { connect } from "react-redux";
 import {
   fetchPlaces,
@@ -8,6 +9,8 @@ import {
 } from "../../../redux/actions/places";
 import Component from "../components";
 import withDidMount from "../../../shared-ui/hoc/withDidMount";
+import withLoading from "../../../shared-ui/hoc/withLoading";
+import withError from "../../../shared-ui/hoc/withError";
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -35,7 +38,10 @@ function mapStateToProps(state) {
   };
 }
 
-const PlacesContainer = connect(mapStateToProps, mapDispatchToProps)(
-  withDidMount(Component)
-);
+const PlacesContainer = compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  withDidMount,
+  withError,
+  withLoading
+)(Component);
 export default PlacesContainer;

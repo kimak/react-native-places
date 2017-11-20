@@ -1,6 +1,6 @@
 export default {
   places: {
-    isLoading: false,
+    isLoading: true,
     error: undefined,
     list: []
   },
