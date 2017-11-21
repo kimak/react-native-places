@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`places reducer snapshot test must return initialState 1`] = `
+Object {
+  "error": undefined,
+  "isLoading": true,
+  "list": Array [],
+}
+`;
+
+exports[`places reducer snapshot test on action ADD_PLACE 1`] = `
+Object {
+  "error": undefined,
+  "isLoading": true,
+  "list": Array [
+    Object {
+      "id": 0,
+      "label": "Paris",
+      "visited": false,
+    },
+  ],
+}
+`;
+
+exports[`places reducer snapshot test on action TOGGLE_PLACE 1`] = `
+Object {
+  "list": Array [
+    Object {
+      "id": 0,
+      "label": "Paris",
+      "visited": true,
+    },
+  ],
+}
+`;

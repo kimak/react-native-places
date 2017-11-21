@@ -2,7 +2,7 @@ import initialStates from "../initialStates";
 import actionsTypes from "../actionTypes";
 
 function places(state = initialStates.places, action) {
-  switch (action.type) {
+  switch (action && action.type) {
     case actionsTypes.FETCH_PLACES_REQUEST:
       return { ...state, isLoading: true };
     case actionsTypes.FETCH_PLACES_SUCCESS:
