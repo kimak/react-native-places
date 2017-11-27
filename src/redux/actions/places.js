@@ -18,8 +18,8 @@ export function fetchPlaces() {
   };
 }
 
-export function togglePlace(index) {
-  return { type: actionTypes.TOGGLE_PLACE, index };
+export function togglePlace(id) {
+  return { type: actionTypes.TOGGLE_PLACE, id };
 }
 
 export function addPlace(label) {

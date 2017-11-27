@@ -18,8 +18,8 @@ function mapDispatchToProps(dispatch) {
     didMount() {
       dispatch(fetchPlaces());
     },
-    onToggleItem: index => {
-      dispatch(togglePlace(index));
+    onToggleItem: id => {
+      dispatch(togglePlace(id));
     },
     addItem: label => {
       dispatch(addPlace(label));

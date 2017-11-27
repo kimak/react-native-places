@@ -18,9 +18,13 @@ function places(state = initialStates.places, action) {
       });
       return { ...state, list };
     case actionsTypes.TOGGLE_PLACE:
-      const newList = state.list.concat(); // equal-to [...state]
-      newList[action.index].visited = !newList[action.index].visited;
-      return { ...state, list: newList };
+      return {
+        ...state,
+        list: state.list.map(
+          todo =>
+            todo.id === action.id ? { ...todo, visited: !todo.visited } : todo
+        )
+      };
     default:
       return state;
   }

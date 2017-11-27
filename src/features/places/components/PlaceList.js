@@ -8,7 +8,7 @@ const PlaceList = props => {
         label={item.label}
         visited={item.visited}
         key={item.id}
-        onPress={props.onSelectItem.bind(this, index)}
+        onPress={props.onSelectItem.bind(this, item.id)}
       />
     );
   });
