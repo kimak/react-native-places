@@ -1,2 +1,2 @@
-import places from "./containers";
+import places from "./containers/graphql";
 export default places;
