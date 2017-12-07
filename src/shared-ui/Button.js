@@ -6,8 +6,7 @@ const styles = StyleSheet.create({
     padding: 5,
     marginTop: 10,
     borderWidth: 1,
-    borderColor: "#CCC",
-    alignSelf: "flex-start"
+    borderColor: "#CCC"
   }
 });
 
