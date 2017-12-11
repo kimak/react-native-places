@@ -5,7 +5,7 @@ export function fetchPlaces() {
   return dispatch => {
     dispatch({ type: actionTypes.FETCH_PLACES_REQUEST });
 
-    fetch("https://api.myjson.com/bins/r4r67")
+    fetch("https://api.myjson.com/bins/1btqrr")
       .then(response => {
         return response.json();
       })
