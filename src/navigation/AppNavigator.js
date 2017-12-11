@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import {
   StackNavigator,
   DrawerNavigator,
@@ -10,6 +10,7 @@ import Home from "../features/home";
 import Places from "../features/places";
 import Around from "../features/around";
 import Friends from "../features/friends";
+import Swiper from "react-native-swiper";
 
 const Tabs = TabNavigator({
   Places: {
