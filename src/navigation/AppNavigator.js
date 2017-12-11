@@ -10,28 +10,34 @@ import Home from "../features/home";
 import Places from "../features/places";
 import Around from "../features/around";
 import Friends from "../features/friends";
+import Filters from "../features/filters";
 import Swiper from "react-native-swiper";
 
-const Tabs = TabNavigator({
-  Places: {
-    screen: Places,
-    navigationOptions: {
-      header: null
+const Tabs = TabNavigator(
+  {
+    Places: {
+      screen: Places,
+      navigationOptions: {
+        header: null
+      }
+    },
+    Around: {
+      screen: Around,
+      navigationOptions: {
+        header: null
+      }
+    },
+    Friends: {
+      screen: Friends,
+      navigationOptions: {
+        header: null
+      }
     }
   },
-  Around: {
-    screen: Around,
-    navigationOptions: {
-      header: null
-    }
-  },
-  Friends: {
-    screen: Friends,
-    navigationOptions: {
-      header: null
-    }
+  {
+    swipeEnabled: false
   }
-});
+);
 
 // this.props.navigation.navigate("DrawerClose");
 // this.props.navigation.navigate("DrawerOpen");
@@ -46,11 +52,7 @@ const Drawer = DrawerNavigator(
   },
   {
     drawerPosition: "right",
-    contentComponent: props => (
-      <View>
-        <Text {...props}>Hello Drawer</Text>
-      </View>
-    )
+    contentComponent: props => <Filters />
   }
 );
 

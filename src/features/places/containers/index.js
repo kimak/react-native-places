@@ -4,8 +4,7 @@ import { connect } from "react-redux";
 import {
   fetchPlaces,
   togglePlace,
-  addPlace,
-  updateFilter
+  addPlace
 } from "../../../redux/actions/places";
 import Component from "../components";
 import withDidMount from "../../../shared-ui/hoc/withDidMount";
@@ -23,9 +22,6 @@ function mapDispatchToProps(dispatch) {
     },
     addItem: label => {
       dispatch(addPlace(label));
-    },
-    updateFilter: value => {
-      dispatch(updateFilter(value));
     }
   };
 }
@@ -34,8 +30,7 @@ function mapStateToProps(state) {
   return {
     places: getVisiblePlaces(state),
     isLoading: state.places.isLoading,
-    error: state.places.error,
-    filter: state.placesFilter
+    error: state.places.error
   };
 }
 

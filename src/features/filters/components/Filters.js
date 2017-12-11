@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 const styles = StyleSheet.create({
-  footer: {
+  root: {
     height: 50,
     backgroundColor: "#FFF",
     alignItems: "center",
@@ -28,8 +28,8 @@ const Button = props => (
   </TouchableOpacity>
 );
 
-const Footer = props => (
-  <View style={styles.footer}>
+const Filters = props => (
+  <View style={styles.root}>
     <Button
       label="Visited"
       selected={props.selected === "visited"}
@@ -47,4 +47,4 @@ const Footer = props => (
     />
   </View>
 );
-export default Footer;
+export default Filters;

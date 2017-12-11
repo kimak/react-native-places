@@ -1,12 +1,22 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import MapView from "react-native-maps";
 import Icon from "../../../shared-ui/Icon";
 
+const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+    paddingHorizontal: 5
+  },
+  map: {
+    flex: 1
+  }
+});
+
 const Around = props => (
-  <View style={{ flex: 1 }}>
+  <View style={styles.root}>
     <MapView
-      style={{ flex: 1 }}
+      style={styles.map}
       ref={ref => {
         this.mapRef = ref;
         if (this.mapRef) this.mapRef.fitToElements(true);
