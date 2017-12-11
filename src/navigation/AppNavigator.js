@@ -13,14 +13,14 @@ import Friends from "../features/friends";
 import Swiper from "react-native-swiper";
 
 const Tabs = TabNavigator({
-  Places: {
-    screen: Places,
+  Around: {
+    screen: Around,
     navigationOptions: {
       header: null
     }
   },
-  Around: {
-    screen: Around,
+  Places: {
+    screen: Places,
     navigationOptions: {
       header: null
     }
@@ -56,7 +56,7 @@ const Drawer = DrawerNavigator(
 
 const RootNavigator = StackNavigator({
   Home: {
-    screen: Home,
+    screen: Tabs,
     navigationOptions: {
       header: null
     }
