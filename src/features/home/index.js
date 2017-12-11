@@ -1,8 +1,8 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import Button from "../../shared-ui/Button";
+import Icon from "../../shared-ui/Icon";
 import Svg, { Circle } from "react-native-svg";
-import Homer from "../../shared-ui/Icon/svg/Homer";
 
 const styles = StyleSheet.create({
   root: {
@@ -32,8 +32,8 @@ const Home = ({ navigation }) => (
     <Svg height="100" width="100">
       <Circle cx="50" cy="50" r="50" fill="pink" />
     </Svg>
-    <Homer />
     <Button label="Navigate >" onPress={() => navigation.navigate("Places")} />
+    <Icon type="homer" />
   </View>
 );
 
