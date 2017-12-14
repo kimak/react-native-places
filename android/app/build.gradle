@@ -94,7 +94,7 @@ def enableSeparateBuildPerCPUArchitecture = false
 def enableProguardInReleaseBuilds = false
 
 android {
-    compileSdkVersion 23
+    compileSdkVersion 26
     buildToolsVersion "23.0.1"
 
     defaultConfig {
@@ -137,6 +137,7 @@ android {
 }
 
 dependencies {
+    compile project(':lottie-react-native')
     compile project(':react-native-maps')
     compile project(':react-native-svg')
     compile fileTree(dir: "libs", include: ["*.jar"])
