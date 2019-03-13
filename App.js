@@ -1,23 +1,29 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { StatusBar } from "react-native";
+import { Provider } from "react-redux";
+import { ApolloProvider } from "react-apollo";
+import { ApolloClient, HttpLink, InMemoryCache } from "apollo-client-preset";
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
-    );
-  }
-}
+import Navigator from "./src/navigation";
+StatusBar.setHidden(true);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+const httpLink = new HttpLink({
+  uri: "https://api.graph.cool/simple/v1/cjas06pop10yl0172jsvu48hn"
 });
+
+const client = new ApolloClient({
+  link: httpLink,
+  cache: new InMemoryCache()
+});
+
+import store from "./src/redux/store";
+
+const App = () => (
+  <ApolloProvider client={client}>
+    <Provider store={store}>
+      <Navigator />
+    </Provider>
+  </ApolloProvider>
+);
+
+export default App;
