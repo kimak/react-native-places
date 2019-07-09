@@ -1,4 +1,7 @@
 # react-native-places
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/kimak/react-native-places.svg)](https://greenkeeper.io/)
+
 React Native Course
 
 
